@@ -27,7 +27,7 @@ const Projects = () => {
             name: "Weather App",
             description: "Real-time weather forecasting application using OpenWeatherMap API.",
             tech: ["React", "API", "CSS"],
-            video: "https://videos.pexels.com/video-files/855018/855018-hd_1920_1080_30fps.mp4", // Cloud time-lapse
+            image: "/weathergif.gif",
         },
     ];
 
