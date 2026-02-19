@@ -1,0 +1,67 @@
+.electric-border {
+    --electric-light-color: oklch(from var(--electric-border-color) l c h);
+    position: relative;
+    /* Removed overflow: hidden so sparks can breathe */
+    overflow: visible;
+    isolation: isolate;
+}
+
+.eb-canvas-container {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+}
+
+.eb-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.eb-content {
+    position: relative;
+    border-radius: inherit;
+    z-index: 5;
+    /* Added padding so the tech tags don't overlap the border */
+    padding: 16px;
+}
+
+.eb-layers {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.eb-glow-1,
+.eb-glow-2,
+.eb-background-glow {
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+}
+
+.eb-glow-1 {
+    /* Slightly visible border to define the shape */
+    border: 1px solid oklch(from var(--electric-border-color) l c h / 0.3);
+    filter: blur(2px);
+}
+
+.eb-glow-2 {
+    border: 1px solid var(--electric-light-color);
+    filter: blur(8px);
+    opacity: 0.5;
+}
+
+.eb-background-glow {
+    z-index: -1;
+    inset: 0;
+    filter: blur(20px);
+    opacity: 0.3;
+    background: linear-gradient(-30deg, var(--electric-light-color), transparent, var(--electric-border-color));
+}
