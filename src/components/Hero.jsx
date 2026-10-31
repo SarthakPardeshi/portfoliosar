@@ -1,28 +1,30 @@
-
 import { motion } from "framer-motion";
 import BlurText from "./BlurText";
-import TextPressure from './TextPressure';
-import LightRays from "./LightRays"; // Import LightRays
+import TextPressure from "./TextPressure";
+import LightRays from "./LightRays";
 
 const Hero = () => {
     return (
-        <section className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden z-10 px-4 pt-32">
-            {/* Replaced static grid background with LightRays */}
+        <section className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden z-10 px-4 pt-20">
+            {/* LightRays background */}
             <div className="absolute inset-0 bg-[#000000] -z-20">
                 <LightRays
-                    raysColor="#5227ff" // Use hex color standard for this component
+                    raysColor="#5227ff"
                     raysSpeed={0.5}
                     rayLength={2}
                     lightSpread={1}
                     className="absolute inset-0"
                 />
-                {/* Optional overlay for depth */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black z-[-5 pointer-events-none]"></div>
+                {/* Depth overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black pointer-events-none"></div>
             </div>
 
             <div className="text-center w-full max-w-5xl mx-auto z-20 flex flex-col items-center">
-                {/* Added margin-top and padding to prevent cut-off */}
-                <div className="mb-4 w-full relative flex items-center justify-center p-4 mt-8" style={{ height: '350px' }}>
+                {/* Single-line balanced container */}
+                <div
+                    className="relative w-full max-w-4xl mx-auto mb-6 flex items-center justify-center px-2"
+                    style={{ height: "clamp(65px, 10vw, 115px)" }}
+                >
                     <TextPressure
                         text="SARTHAK PARDESHI"
                         flex={true}
@@ -30,16 +32,18 @@ const Hero = () => {
                         stroke={false}
                         width={true}
                         weight={true}
-                        italic={true}
+                        italic={false}
+                        scale={false}
                         textColor="#ffffff"
-                        minFontSize={36}
+                        minFontSize={28}
+                        fitFactor={0.65}
                     />
                 </div>
 
                 <div className="mt-2 text-center">
                     <BlurText
                         text="Creative Developer & UI/UX Enthusiast"
-                        className="text-2xl md:text-3xl text-gray-400 font-light"
+                        className="text-2xl md:text-3xl text-gray-300 font-light"
                         delay={0.5}
                     />
                 </div>
